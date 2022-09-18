@@ -8,18 +8,20 @@ const MovieList = () => {
     const [movieList, setMovieList] = useState([])
     const {type} = useParams()
 
-    const getData = () => {
+    // const getData = () => {
+    //     fetch(`https://api.themoviedb.org/3/movie/${type ? type : "popular"}?api_key=bcf4a112d4960a6fc6e5bbfd7b2ad0dd&language=en-US`)
+    //     .then(res => res.json())
+    //     .then(data => setMovieList(data.results))
+    // }
+
+    // useEffect(() => {
+    //     getData()
+    // }, [])
+
+    useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${type ? type : "popular"}?api_key=bcf4a112d4960a6fc6e5bbfd7b2ad0dd&language=en-US`)
         .then(res => res.json())
         .then(data => setMovieList(data.results))
-    }
-
-    useEffect(() => {
-        getData()
-    }, [])
-
-    useEffect(() => {
-        getData()
     }, [type])
 
 
