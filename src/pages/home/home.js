@@ -26,10 +26,10 @@ const Home = () => {
                     showStatus={false}
                 >
                     {
-                        popularMovies.map(movie => (
-                            <Link style={{textDecoration:"none",color:"white"}} to={`/movie/${movie.id}`} >
+                        popularMovies.map((movie, id) => (
+                            <Link style={{textDecoration:"none",color:"white"}} to={`/movie/${movie.id}`} key={id}>
                                 <div className="posterImage">
-                                    <img src={`https://image.tmdb.org/t/p/original${movie && movie.backdrop_path}`} />
+                                    <img src={`https://image.tmdb.org/t/p/original${movie && movie.backdrop_path}`} alt="picture"/>
                                 </div>
                                 <div className="posterImage__overlay">
                                     <div className="posterImage__title">{movie ? movie.original_title: ""}</div>
