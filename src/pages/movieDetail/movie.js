@@ -6,16 +6,19 @@ const Movie = () => {
     const [currentMovieDetail, setMovie] = useState()
     const { id } = useParams()
 
-    const getData = () => {
+    // const getData = () => {
+    //     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=bcf4a112d4960a6fc6e5bbfd7b2ad0dd&language=en-US`)
+    //     .then(res => res.json())
+    //     .then(data => setMovie(data))
+    // }
+    
+
+    useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=bcf4a112d4960a6fc6e5bbfd7b2ad0dd&language=en-US`)
         .then(res => res.json())
         .then(data => setMovie(data))
-    }
-
-    useEffect(() => {
-        getData()
         window.scrollTo(0,0)
-    }, [])
+    },[id])
 
     
 
